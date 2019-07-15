@@ -19,6 +19,7 @@ import {
 } from 'reactstrap';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities'
+import "chartjs-plugin-annotation";
 
 const Widget03 = lazy(() => import('../../views/Widgets/Widget03'));
 
@@ -30,13 +31,13 @@ const brandDanger = getStyle('--danger')
 
 // Card Chart 1
 const cardChartData1 = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  labels: ['September', 'October', 'November', 'December', 'January', 'February', 'March'],
   datasets: [
     {
-      label: 'BBL',
+      label: 'PPM',
       backgroundColor: brandPrimary,
       borderColor: 'rgba(255,255,255,.55)',
-      data: [1655.43, 1467.61, 1840.0, 1284.33, 1151.82, 1550.08, 1490.77],
+      data: [7.855, 8.44, 10.01, 6.77, 7.67, 8.02, 8.55],
     },
   ],
 };
@@ -88,7 +89,7 @@ const cardChartOpts1 = {
 
 // Card Chart 2
 const cardChartData2 = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  labels: ['September', 'October', 'November', 'December', 'January', 'February', 'March'],
   datasets: [
     {
       label: 'Anomalies',
@@ -146,7 +147,7 @@ const cardChartOpts2 = {
 
 // Card Chart 3
 const cardChartData3 = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  labels: ['September', 'October', 'November', 'December', 'January', 'February', 'March'],
   datasets: [
     {
       label: 'Hours',
@@ -190,13 +191,13 @@ const cardChartOpts3 = {
 
 // Card Chart 4
 const cardChartData4 = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  labels: ['September', 'October', 'November', 'December', 'January', 'February', 'March'],
   datasets: [
     {
-      label: '% Efficiency',
+      label: '% Accuracy',
       backgroundColor: 'rgba(255,255,255,.2)',
       borderColor: 'transparent',
-      data: [77.4, 70.33, 73.51, 69.44 , 67.6, 60.98, 73.81],
+      data: [92.1, 93.6, 96.7, 92.5 , 89.6, 93.2, 95.01],
     },
   ],
 };
@@ -228,244 +229,82 @@ const cardChartOpts4 = {
   },
 };
 
-// Social Box Chart
-// const socialBoxData = [
-//   { data: [65, 59, 84, 84, 51, 55, 40], label: 'facebook' },
-//   { data: [1, 13, 9, 17, 34, 41, 38], label: 'twitter' },
-//   { data: [78, 81, 80, 45, 34, 12, 40], label: 'linkedin' },
-//   { data: [35, 23, 56, 22, 97, 23, 64], label: 'google' },
-// ];
-
-// const makeSocialBoxData = (dataSetNo) => {
-//   const dataset = socialBoxData[dataSetNo];
-//   const data = {
-//     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-//     datasets: [
-//       {
-//         backgroundColor: 'rgba(255,255,255,.1)',
-//         borderColor: 'rgba(255,255,255,.55)',
-//         pointHoverBackgroundColor: '#fff',
-//         borderWidth: 2,
-//         data: dataset.data,
-//         label: dataset.label,
-//       },
-//     ],
-//   };
-//   return () => data;
-// };
-
-// const socialChartOpts = {
-//   tooltips: {
-//     enabled: false,
-//     custom: CustomTooltips
-//   },
-//   responsive: true,
-//   maintainAspectRatio: false,
-//   legend: {
-//     display: false,
-//   },
-//   scales: {
-//     xAxes: [
-//       {
-//         display: false,
-//       }],
-//     yAxes: [
-//       {
-//         display: false,
-//       }],
-//   },
-//   elements: {
-//     point: {
-//       radius: 0,
-//       hitRadius: 10,
-//       hoverRadius: 4,
-//       hoverBorderWidth: 3,
-//     },
-//   },
-// };
-
-// sparkline charts
-const sparkLineChartData = [
-  {
-    data: [35, 23, 56, 22, 97, 23, 64],
-    label: 'New Clients',
-  },
-  {
-    data: [65, 59, 84, 84, 51, 55, 40],
-    label: 'Recurring Clients',
-  },
-  {
-    data: [35, 23, 56, 22, 97, 23, 64],
-    label: 'Pageviews',
-  },
-  {
-    data: [65, 59, 84, 84, 51, 55, 40],
-    label: 'Organic',
-  },
-  {
-    data: [78, 81, 80, 45, 34, 12, 40],
-    label: 'CTR',
-  },
-  {
-    data: [1, 13, 9, 17, 34, 41, 38],
-    label: 'Bounce Rate',
-  },
-];
-
-const makeSparkLineData = (dataSetNo, variant) => {
-  const dataset = sparkLineChartData[dataSetNo];
-  const data = {
-    labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-    datasets: [
-      {
-        backgroundColor: 'transparent',
-        borderColor: variant ? variant : '#c2cfd6',
-        data: dataset.data,
-        label: dataset.label,
-      },
-    ],
-  };
-  return () => data;
-};
-
-const sparklineChartOpts = {
-  tooltips: {
-    enabled: false,
-    custom: CustomTooltips
-  },
-  responsive: true,
-  maintainAspectRatio: true,
-  scales: {
-    xAxes: [
-      {
-        display: false,
-      }],
-    yAxes: [
-      {
-        display: false,
-      }],
-  },
-  elements: {
-    line: {
-      borderWidth: 2,
-    },
-    point: {
-      radius: 0,
-      hitRadius: 10,
-      hoverRadius: 4,
-      hoverBorderWidth: 3,
-    },
-  },
-  legend: {
-    display: false,
-  },
-};
-
-// Main Chart
-
-//Random Numbers
-function random(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-var elements = 50;
-var data1 = [];
-var data2 = [];
-var data3 = [];
-
-for (var i = 0; i <= elements; i++) {
-  data1.push(random(10, 65));
-  data2.push(random(50, 65));
-  data3.push(35);
-}
-const mainChart = {
-  labels: [...Array(data1.length).keys()],
-  datasets: [
-    {
-      label: 'Predicted',
-      backgroundColor: hexToRgba(brandInfo, 10),
-      borderColor: brandInfo,
-      pointHoverBackgroundColor: '#fff',
-      borderWidth: 2,
-      data: data1,
-    },
-    {
-      label: 'Real',
-      backgroundColor: 'transparent',
-      borderColor: brandSuccess,
-      pointHoverBackgroundColor: '#fff',
-      borderWidth: 2,
-      data: data2,
-    },
-    {
-      label: 'Anomaly Boundary',
-      backgroundColor: 'transparent',
-      borderColor: brandDanger,
-      pointHoverBackgroundColor: '#fff',
-      borderWidth: 1,
-      borderDash: [8, 5],
-      data: data3,
-    },
-  ],
-};
-
-const mainChartOpts = {
-  tooltips: {
-    enabled: false,
-    custom: CustomTooltips,
-    intersect: true,
-    mode: 'index',
-    position: 'nearest',
-    callbacks: {
-      labelColor: function(tooltipItem, chart) {
-        return { backgroundColor: chart.data.datasets[tooltipItem.datasetIndex].borderColor }
-      }
-    }
-  },
-  maintainAspectRatio: false,
-  legend: {
-    display: false,
-  },
-  scales: {
-    xAxes: [
-      {
-        gridLines: {
-          drawOnChartArea: false,
-        },
-      }],
-    yAxes: [
-      {
-        ticks: {
-          beginAtZero: true,
-          maxTicksLimit: 5,
-          stepSize: Math.ceil(100 / 5),
-          max: 100,
-        },
-      }],
-  },
-  elements: {
-    point: {
-      radius: 0,
-      hitRadius: 10,
-      hoverRadius: 4,
-      hoverBorderWidth: 3,
-    },
-  },
-};
-
 class Dashboard extends Component {
   constructor(props) {
     super(props);
 
     this.toggle = this.toggle.bind(this);
     this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
+    this.loadCSV = this.loadCSV.bind(this);
 
     this.state = {
       dropdownOpen: false,
       radioSelected: 2,
+      count: 0,
     };
   }
 
+  loadCSV(result) {
+    const data = result.data;
+    this.setState({
+      data: data
+    });
+    this.updateData();
+  }
+
+  async componentDidMount() {
+    try {
+      const papa = require('papaparse')
+      const csvFilePath = require('../../assets/csv/march.csv')
+      papa.parse(csvFilePath, {
+        header:true,
+        download: true,
+        skipEmptyLines: true,
+        complete: this.loadCSV
+      });
+      
+      this.interval = setInterval(() => this.updateData(), 1000 * 1);
+    } catch (e) {
+      console.error(`error: ${e}`);
+    }
+  }
+
+  async updateData() {
+    const { data, count } = this.state;
+    const limit = 25;
+
+    const historical = data.slice(count, count+limit-7);
+    const predictive = data.slice(count, count+limit);
+
+    // const predictivePoints = predictiveData(predictive, historical);
+
+    var newCount = count + 1;
+    if (newCount > data.length - (limit+1)) {
+      newCount = 0;
+    }
+
+    this.setState({
+      count: newCount,
+      historical,
+      predictive,
+      today: new Date()
+    });
+  }
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  handleChange = event => {
+    this.setState({
+      [event.target.id]: event.target.value
+    });
+  };
+
+  tick() {
+    this.setState({
+      today: new Date()
+    });
+  }
   toggle() {
     this.setState({
       dropdownOpen: !this.state.dropdownOpen,
@@ -480,6 +319,200 @@ class Dashboard extends Component {
 
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
+  getMaxY(data) {
+    return data.reduce((max, p) => p.y > max ? p.y : max, data[0].y);
+  }
+  renderBigChart() {
+    const { historical, predictive }  = this.state;
+    if (!historical) {
+      return 'Loading...';
+    }
+    var data1 = [];
+    var data2 = [];
+    var data3 = [];
+
+    
+    for (var i = 0; i < historical.length; i++) {
+      data2.push({ y: historical[i]['real'], x: (new Date(historical[i]['time'] * 1000)).toString()});
+      data3.push({ y: predictive[i]['predict'], x: (new Date(predictive[i]['time'] * 1000)).toString()});
+    }
+    for (i = 0; i < historical.length-1; i++) {
+      data1.push({ y: null, x: (new Date(predictive[i]['time'] * 1000)).toString() });
+    }
+    for(i = historical.length-1; i < predictive.length; i++) {
+      data1.push({ y: predictive[i]['predict'], x: (new Date(predictive[i]['time'] * 1000)).toString()});
+    }
+
+    const max = Math.max(this.getMaxY(data1), this.getMaxY(data2), this.getMaxY(data3));
+    // console.log(this.getMaxY(data1) + " : " + this.getMaxY(data2) + " : " + this.getMaxY(data3));
+    // console.log(data3);
+    // console.log(max);
+    const mainChart = {
+      datasets: [
+        {
+          label: 'Future Prediction',
+          backgroundColor: hexToRgba(brandInfo, 10),
+          borderColor: brandInfo,
+          pointHoverBackgroundColor: '#fff',
+          borderWidth: 2,
+          borderDash: [8, 5],
+          data: data1,
+        },
+        {
+          label: 'Real',
+          backgroundColor: 'transparent',
+          borderColor: brandSuccess,
+          pointHoverBackgroundColor: '#fff',
+          borderWidth: 2,
+          data: data2,
+        },
+        {
+          label: 'Past Prediction',
+          backgroundColor: 'transparent',
+          borderColor: brandDanger,
+          pointHoverBackgroundColor: '#fff',
+          borderWidth: 2,
+          data: data3,
+        },
+      ],
+    };
+
+    const mainChartOpts = {
+      tooltips: {
+        enabled: false,
+        custom: CustomTooltips,
+        intersect: true,
+        mode: 'index',
+        position: 'nearest',
+        callbacks: {
+          labelColor: function (tooltipItem, chart) {
+            return { backgroundColor: chart.data.datasets[tooltipItem.datasetIndex].borderColor }
+          }
+        }
+      },
+      maintainAspectRatio: false,
+      legend: {
+        display: true,
+      },
+      scales: {
+        xAxes: [
+          {
+            type: 'time',
+            gridLines: {
+              drawOnChartArea: false,
+            },
+            id: 'x-axis-label'
+          }],
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true,
+              maxTicksLimit: 5,
+              stepSize: 5,
+              max: (max > 25 ? max + 5 : 25),
+            },
+          }],
+      },
+      elements: {
+        point: {
+          radius: 0,
+          hitRadius: 10,
+          hoverRadius: 4,
+          hoverBorderWidth: 3,
+        },
+      },
+      annotation: {
+        annotations: [
+          {
+              // drawTime: "afterDatasetsDraw",
+              // id: "hline",
+              type: "line",
+              mode: "vertical",
+              scaleID: 'x-axis-label',
+              value: new Date(historical[historical.length-1]['time']*1000).toString(),
+              borderColor: "black",
+              borderWidth: 2,
+              label: {
+                  backgroundColor: "purple",
+                  content: "Now",
+                  enabled: true,
+                  yAdjust: -100,
+              }
+          }
+        ]
+    }
+      
+    };
+    const currentDate = new Date(historical[historical.length-1]['time']*1000).toString();
+    const anomalies = 0;
+    const avoidedAnomalies = 0;
+    const time70Prediction = Math.round(predictive[predictive.length - 1]['predict'] * 10) / 10;
+    
+    var error = 0;
+    for(var i = 0; i < historical.length; i++) {
+      error += Math.abs(historical[i]['real'] - historical[i]['predict']) / historical[i]['real'];
+    }
+    
+    error = Math.round((error / historical.length) * 1000) / 1000 * 100
+
+    const accuracy = 100 - error;
+    return (
+      <Col>
+        <Card>
+          <CardBody>
+            <Row>
+              <Col sm="5">
+                <CardTitle className="mb-0">{currentDate}</CardTitle>
+                {/* <div className="small text-muted">November 2015</div> */}
+              </Col>
+              {/* <Col sm="7" className="d-none d-sm-inline-block">
+                <Button color="primary" className="float-right"><i className="icon-cloud-download"></i></Button>
+                <ButtonToolbar className="float-right" aria-label="Toolbar with button groups">
+                  <ButtonGroup className="mr-3" aria-label="First group">
+                    <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(1)} active={this.state.radioSelected === 1}>Day</Button>
+                    <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(2)} active={this.state.radioSelected === 2}>Month</Button>
+                    <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(3)} active={this.state.radioSelected === 3}>Year</Button>
+                  </ButtonGroup>
+                </ButtonToolbar>
+              </Col> */}
+            </Row>
+            <div className="chart-wrapper" style={{ height: 300 + 'px', marginTop: 40 + 'px' }}>
+              <Line data={mainChart} options={mainChartOpts} height={300} />
+            </div>
+          </CardBody>
+          <CardFooter>
+            <Row className="text-center">
+              {/* <Col sm={12} md className="mb-sm-2 mb-0">
+                <div className="text-muted">Anomalies Predicted</div>
+                <strong>5 Anomalies</strong>
+                <Progress className="progress-xs mt-2" color="success" value="100" />
+              </Col> */}
+              {/* <Col sm={12} md className="mb-sm-2 mb-0 d-md-down-none">
+                <div className="text-muted">Anomalies Avoided</div>
+                <strong>4 Anomalies (80%)</strong>
+                <Progress className="progress-xs mt-2" color="info" value="80" />
+              </Col> */}
+              <Col sm={12} md className="mb-sm-2 mb-0">
+                <div className="text-muted">Model Accuracy</div>
+                <strong>{accuracy}% Accurate</strong>
+                <Progress className="progress-xs mt-2" color="warning" value={(Math.round(accuracy*10)/10).toString()} />
+              </Col>
+              <Col sm={12} md className="mb-sm-2 mb-0">
+                <div className="text-muted">70' Prediction</div>
+                <strong>{time70Prediction} ppm</strong>
+                <Progress className="progress-xs mt-2" color="danger" value={(Math.round((time70Prediction / 12)*1000)/1000 * 100).toString()} />
+              </Col>
+              <Col sm={12} md className="mb-sm-2 mb-0 d-md-down-none">
+                <div className="text-muted">Downtime</div>
+                <strong>0.0 Hours</strong>
+                <Progress className="progress-xs mt-2" color="primary" value="100" />
+              </Col>
+            </Row>
+          </CardFooter>
+        </Card>
+      </Col>
+    );
+  }
   render() {
 
     return (
@@ -501,8 +534,8 @@ class Dashboard extends Component {
           <Col xs="12" sm="6" lg="3" md="6">
             <Card className="text-white bg-primary">
               <CardBody className="pb-0">
-                <div className="text-value">1,491 BBL</div>
-                <div> Monthly Production</div>
+                <div className="text-value">8.187 PPM</div>
+                <div> Monthly PPM</div>
                 <div>Average</div>
               </CardBody>
               <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
@@ -527,9 +560,9 @@ class Dashboard extends Component {
           <Col xs="12" sm="6" lg="3" md="6">
             <Card className="text-white bg-danger">
               <CardBody className="pb-0">
-                <div className="text-value">70.43%</div>
-                <div>Monthly Efficiency</div>
-                <div>Average</div>
+                <div className="text-value">93.2%</div>
+                <div>Monthly Model</div>
+                <div>Accuracy</div>
               </CardBody>
               <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
                 <Bar data={cardChartData4} options={cardChartOpts4} height={70} />
@@ -538,60 +571,7 @@ class Dashboard extends Component {
           </Col>
         </Row>
         <Row>
-          <Col>
-            <Card>
-              <CardBody>
-                <Row>
-                  <Col sm="5">
-                    <CardTitle className="mb-0">BBL Production</CardTitle>
-                    {/* <div className="small text-muted">November 2015</div> */}
-                  </Col>
-                  <Col sm="7" className="d-none d-sm-inline-block">
-                    <Button color="primary" className="float-right"><i className="icon-cloud-download"></i></Button>
-                    <ButtonToolbar className="float-right" aria-label="Toolbar with button groups">
-                      <ButtonGroup className="mr-3" aria-label="First group">
-                        <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(1)} active={this.state.radioSelected === 1}>Day</Button>
-                        <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(2)} active={this.state.radioSelected === 2}>Month</Button>
-                        <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(3)} active={this.state.radioSelected === 3}>Year</Button>
-                      </ButtonGroup>
-                    </ButtonToolbar>
-                  </Col>
-                </Row>
-                <div className="chart-wrapper" style={{ height: 300 + 'px', marginTop: 40 + 'px' }}>
-                  <Line data={mainChart} options={mainChartOpts} height={300} />
-                </div>
-              </CardBody>
-              <CardFooter>
-                <Row className="text-center">
-                  <Col sm={12} md className="mb-sm-2 mb-0">
-                    <div className="text-muted">Anomalies Predicted</div>
-                    <strong>5 Anomalies</strong>
-                    <Progress className="progress-xs mt-2" color="success" value="100" />
-                  </Col>
-                  <Col sm={12} md className="mb-sm-2 mb-0 d-md-down-none">
-                    <div className="text-muted">Anomalies Avoided</div>
-                    <strong>4 Anomalies (80%)</strong>
-                    <Progress className="progress-xs mt-2" color="info" value="80" />
-                  </Col>
-                  <Col sm={12} md className="mb-sm-2 mb-0">
-                    <div className="text-muted">Daily Efficiency</div>
-                    <strong>75% Efficient</strong>
-                    <Progress className="progress-xs mt-2" color="warning" value="75" />
-                  </Col>
-                  <Col sm={12} md className="mb-sm-2 mb-0">
-                    <div className="text-muted">Projected Output</div>
-                    <strong>55 BBL</strong>
-                    <Progress className="progress-xs mt-2" color="danger" value="100" />
-                  </Col>
-                  <Col sm={12} md className="mb-sm-2 mb-0 d-md-down-none">
-                    <div className="text-muted">Downtime</div>
-                    <strong>0.0 Hours</strong>
-                    <Progress className="progress-xs mt-2" color="primary" value="100" />
-                  </Col>
-                </Row>
-              </CardFooter>
-            </Card>
-          </Col>
+          {this.renderBigChart()}
         </Row>
 
 
@@ -1040,5 +1020,4 @@ class Dashboard extends Component {
     );
   }
 }
-
-export default Dashboard;
+export default Dashboard; 
