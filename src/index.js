@@ -1,37 +1,12 @@
-import 'react-app-polyfill/ie9'; // For IE 9-11 support
-import 'react-app-polyfill/stable';
-// import 'react-app-polyfill/ie11'; // For IE 11 support
-import './polyfill'
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import Amplify from 'aws-amplify';
-import config from './config';
 
-// Amplify allows us to do nifty AWS calls in the client
-Amplify.configure({
-  Auth: {
-    mandatorySignIn: true,
-    region: config.cognito.REGION,
-    userPoolId: config.cognito.USER_POOL_ID,
-    identityPoolId: config.cognito.IDENTITY_POOL_ID,
-    userPoolWebClientId: config.cognito.APP_CLIENT_ID
-  },
-  API: {
-    endpoints: [
-      {
-        name: 'backend',
-        endpoint: config.apiGateway.URL,
-        region: config.apiGateway.REGION
-      }
-    ]
-  }
-});
+// Service worker
+import * as serviceWorker from './common/serviceWorker';
+
+// App
+import App from './App';
+
 ReactDOM.render(<App />, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
