@@ -28,7 +28,7 @@ class Dashboard extends Component {
     };
   }
 
-  handleClose = () => {
+  handleCase = () => {
     this.setState({ isOpen: false });
   };
 
