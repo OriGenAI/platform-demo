@@ -52,31 +52,27 @@ class Sidebar extends Component {
             <img
               alt="Brainalytica logo"
               className={classes.logoImage}
-              src="/images/logos/brainalytica_logo.svg"
+              src="/images/logos/logo.png"
             />
           </Link>
         </div>
         <Divider className={classes.logoDivider} />
         <div className={classes.profile}>
           <Link to="/account">
-            <Avatar
-              alt="Roman Kutepov"
-              className={classes.avatar}
-              src="/images/avatars/avatar_1.png"
-            />
-          </Link>
-          <Typography
-            className={classes.nameText}
-            variant="h6"
-          >
+            <Typography
+              className={classes.nameText}
+              variant="h6"
+            >
             Roman Kutepov
-          </Typography>
-          <Typography
-            className={classes.bioText}
-            variant="caption"
-          >
+            </Typography>
+            <Typography
+              className={classes.bioText}
+              variant="caption"
+            >
             Brain Director
-          </Typography>
+            </Typography>
+          </Link>
+
         </div>
         <Divider className={classes.profileDivider} />
         <List

@@ -27,7 +27,7 @@ import {
 // Component styles
 const styles = theme => ({
   root: {
-    padding: theme.spacing.unit * 4
+    padding: theme.spacing(4)
   },
   item: {
     height: '100%'
@@ -35,9 +35,28 @@ const styles = theme => ({
 });
 
 class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+    this.loadCSV = this.loadCSV.bind(this);
+
+    this.state = {
+      count: 0,
+    };
+  }
+
+  loadCSV(result) {
+    const rawData = result.data;
+    this.setState({
+      rawData
+    });
+    this.updateData();
+  }
+  
   async componentDidMount() {
     try {
+      // eslint-disable-next-line no-undef
       const papa = require('papaparse')
+      // eslint-disable-next-line no-undef
       const csvFilePath = require('../../assets/csv/march.csv')
       papa.parse(csvFilePath, {
         header: true,
@@ -46,8 +65,10 @@ class Dashboard extends Component {
         complete: this.loadCSV
       });
 
+      
       this.interval = setInterval(() => this.updateData(), 1000 * 1);
     } catch (e) {
+      // eslint-disable-next-line no-console
       console.error(`error: ${e}`);
     }
   }
@@ -136,7 +157,10 @@ class Dashboard extends Component {
               xl={9}
               xs={12}
             >
-              <SalesChart className={classes.item} data={data} />
+              <SalesChart 
+                className={classes.item}
+                data={data} 
+              />
             </Grid>
             <Grid
               item
