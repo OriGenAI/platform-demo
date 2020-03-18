@@ -12,8 +12,8 @@ import { Typography } from '@material-ui/core';
 
 // Material icons
 import {
-  ArrowUpward as ArrowUpwardIcon,
-  PeopleOutlined as PeopleIcon
+  ArrowDownward as ArrowDownwardIcon,
+  Money as MoneyIcon
 } from '@material-ui/icons';
 
 // Shared components
@@ -22,7 +22,7 @@ import { Paper } from 'components';
 // Component styles
 import styles from './styles';
 
-class Users extends Component {
+class Anomalies extends Component {
   render() {
     const { classes, className, ...rest } = this.props;
 
@@ -39,17 +39,17 @@ class Users extends Component {
               className={classes.title}
               variant="body2"
             >
-              TOTAL USERS
+              Anomalies
             </Typography>
             <Typography
               className={classes.value}
               variant="h3"
             >
-              1600
+              16 total
             </Typography>
           </div>
           <div className={classes.iconWrapper}>
-            <PeopleIcon className={classes.icon} />
+            <MoneyIcon className={classes.icon} />
           </div>
         </div>
         <div className={classes.footer}>
@@ -57,8 +57,8 @@ class Users extends Component {
             className={classes.difference}
             variant="body2"
           >
-            <ArrowUpwardIcon />
-            16%
+            <ArrowDownwardIcon />
+            2
           </Typography>
           <Typography
             className={classes.caption}
@@ -72,9 +72,9 @@ class Users extends Component {
   }
 }
 
-Users.propTypes = {
+Anomalies.propTypes = {
   className: PropTypes.string,
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Users);
+export default withStyles(styles)(Anomalies);

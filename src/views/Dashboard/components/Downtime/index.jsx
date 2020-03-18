@@ -11,7 +11,7 @@ import { withStyles } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 
 // Material icons
-import { AttachMoney as AttachMoneyIcon } from '@material-ui/icons';
+import { InsertChartOutlined as InsertChartIcon } from '@material-ui/icons';
 
 // Shared components
 import { Paper } from 'components';
@@ -19,7 +19,7 @@ import { Paper } from 'components';
 // Component styles
 import styles from './styles';
 
-class Profit extends Component {
+class Downtime extends Component {
   render() {
     const { classes, className, ...rest } = this.props;
 
@@ -36,17 +36,17 @@ class Profit extends Component {
               className={classes.title}
               variant="body2"
             >
-              TOTAL PROFIT
+              Downtime
             </Typography>
             <Typography
               className={classes.value}
               variant="h3"
             >
-              $23,200
+              1.2 Hours
             </Typography>
           </div>
           <div className={classes.iconWrapper}>
-            <AttachMoneyIcon className={classes.icon} />
+            <InsertChartIcon className={classes.icon} />
           </div>
         </div>
       </Paper>
@@ -54,9 +54,9 @@ class Profit extends Component {
   }
 }
 
-Profit.propTypes = {
+Downtime.propTypes = {
   className: PropTypes.string,
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Profit);
+export default withStyles(styles)(Downtime);

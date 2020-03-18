@@ -31,7 +31,7 @@ import {
 // Component styles
 import styles from './styles';
 
-class SalesChart extends Component {
+class ProcessChart extends Component {
 
   fixData(data) {
     var data1 = [];
@@ -67,7 +67,7 @@ class SalesChart extends Component {
         {
           label: 'Real',
           backgroundColor: 'transparent',
-          borderColor: palette.common.neutral,
+          borderColor: palette.warning.main,
           pointHoverBackgroundColor: '#fff',
           borderWidth: 2,
           data: data2,
@@ -75,7 +75,7 @@ class SalesChart extends Component {
         {
           label: 'Past Prediction',
           backgroundColor: 'transparent',
-          borderColor: palette.common.success,
+          borderColor: palette.success.main,
           pointHoverBackgroundColor: '#fff',
           borderWidth: 2,
           data: data3,
@@ -84,7 +84,7 @@ class SalesChart extends Component {
     };
     const options = {
       tooltips: {
-        enabled: false,
+        enabled: true,
         intersect: true,
         mode: 'index',
         position: 'nearest',
@@ -147,7 +147,7 @@ class SalesChart extends Component {
       }
 
     };
-    return chartData, options;
+    return {chartData, options};
   }
 
   getMaxY(data) {
@@ -160,8 +160,6 @@ class SalesChart extends Component {
     }
     const {chartData, options} = this.fixData(data);
     // eslint-disable-next-line no-console
-    console.log(chartData);
-
 
     const rootClassName = classNames(classes.root, className);
  
@@ -203,11 +201,11 @@ class SalesChart extends Component {
     );
   }
 }
-
-SalesChart.propTypes = {
+ 
+ProcessChart.propTypes = {
   className: PropTypes.string,
   classes: PropTypes.object.isRequired,
   data: PropTypes.array
 };
 
-export default withStyles(styles)(SalesChart);
+export default withStyles(styles)(ProcessChart);

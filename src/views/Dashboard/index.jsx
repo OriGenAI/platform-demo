@@ -14,14 +14,13 @@ import { Dashboard as DashboardLayout } from 'layouts';
 
 // Custom components
 import {
-  Budget,
-  Users,
-  Progress,
-  Profit,
-  SalesChart,
-  DevicesChart,
-  ProductList,
-  OrdersTable
+  Accuracy,
+  Anomalies,
+  Downtime,
+  ProcessChart,
+  Output,
+  AnalyticsChart,
+  CircleLoader,
 } from './components';
 
 // Component styles
@@ -33,6 +32,8 @@ const styles = theme => ({
     height: '100%'
   }
 });
+
+
 
 class Dashboard extends Component {
   constructor(props) {
@@ -79,7 +80,6 @@ class Dashboard extends Component {
 
     // const historical = data.slice(count, count + limit - 7);
     const data = rawData.slice(count, count + limit);
-
     // const predictivePoints = predictiveData(predictive, historical);
 
     var newCount = count + 1;
@@ -107,6 +107,11 @@ class Dashboard extends Component {
   render() {
     const { classes } = this.props;
     const { data } = this.state;
+    if(data == undefined) {
+      return(
+        <CircleLoader />
+      );
+    }
     return (
       <DashboardLayout title="Dashboard">
         <div className={classes.root}>
@@ -121,7 +126,7 @@ class Dashboard extends Component {
               xl={3}
               xs={12}
             >
-              <Budget className={classes.item} />
+              <Anomalies className={classes.item} />
             </Grid>
             <Grid
               item
@@ -130,7 +135,7 @@ class Dashboard extends Component {
               xl={3}
               xs={12}
             >
-              <Users className={classes.item} />
+              <Output className={classes.item} />
             </Grid>
             <Grid
               item
@@ -139,7 +144,7 @@ class Dashboard extends Component {
               xl={3}
               xs={12}
             >
-              <Progress className={classes.item} />
+              <Downtime className={classes.item} />
             </Grid>
             <Grid
               item
@@ -148,7 +153,7 @@ class Dashboard extends Component {
               xl={3}
               xs={12}
             >
-              <Profit className={classes.item} />
+              <Accuracy className={classes.item} />
             </Grid>
             <Grid
               item
@@ -157,7 +162,7 @@ class Dashboard extends Component {
               xl={9}
               xs={12}
             >
-              <SalesChart 
+              <ProcessChart 
                 className={classes.item}
                 data={data} 
               />
@@ -169,25 +174,10 @@ class Dashboard extends Component {
               xl={3}
               xs={12}
             >
-              <DevicesChart className={classes.item} />
-            </Grid>
-            <Grid
-              item
-              lg={4}
-              md={6}
-              xl={3}
-              xs={12}
-            >
-              <ProductList className={classes.item} />
-            </Grid>
-            <Grid
-              item
-              lg={8}
-              md={12}
-              xl={9}
-              xs={12}
-            >
-              <OrdersTable className={classes.item} />
+              <AnalyticsChart 
+                className={classes.item}
+                data={data} 
+              />
             </Grid>
           </Grid>
         </div>

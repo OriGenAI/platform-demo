@@ -23,10 +23,7 @@ import {
 import {
   DashboardOutlined as DashboardIcon,
   PeopleOutlined as PeopleIcon,
-  ShoppingBasketOutlined as ShoppingBasketIcon,
-  LockOpenOutlined as LockOpenIcon,
-  TextFields as TextFieldsIcon,
-  ImageOutlined as ImageIcon,
+  AssessmentOutlined as AssessmentIcon,
   InfoOutlined as InfoIcon,
   AccountBoxOutlined as AccountBoxIcon,
   SettingsOutlined as SettingsIcon
@@ -92,6 +89,21 @@ class Sidebar extends Component {
               primary="Dashboard"
             />
           </ListItem>
+          
+          <ListItem
+            activeClassName={classes.activeListItem}
+            className={classes.listItem}
+            component={NavLink}
+            to="/analytics"
+          >
+            <ListItemIcon className={classes.listItemIcon}>
+              <AssessmentIcon />
+            </ListItemIcon>
+            <ListItemText
+              classes={{ primary: classes.listItemText }}
+              primary="XDL"
+            />
+          </ListItem>
           <ListItem
             activeClassName={classes.activeListItem}
             className={classes.listItem}
@@ -106,62 +118,7 @@ class Sidebar extends Component {
               primary="Users"
             />
           </ListItem>
-          <ListItem
-            activeClassName={classes.activeListItem}
-            className={classes.listItem}
-            component={NavLink}
-            to="/products"
-          >
-            <ListItemIcon className={classes.listItemIcon}>
-              <ShoppingBasketIcon />
-            </ListItemIcon>
-            <ListItemText
-              classes={{ primary: classes.listItemText }}
-              primary="Products"
-            />
-          </ListItem>
-          <ListItem
-            activeClassName={classes.activeListItem}
-            className={classes.listItem}
-            component={NavLink}
-            to="/sign-in"
-          >
-            <ListItemIcon className={classes.listItemIcon}>
-              <LockOpenIcon />
-            </ListItemIcon>
-            <ListItemText
-              classes={{ primary: classes.listItemText }}
-              primary="Authentication"
-            />
-          </ListItem>
-          <ListItem
-            activeClassName={classes.activeListItem}
-            className={classes.listItem}
-            component={NavLink}
-            to="/typography"
-          >
-            <ListItemIcon className={classes.listItemIcon}>
-              <TextFieldsIcon />
-            </ListItemIcon>
-            <ListItemText
-              classes={{ primary: classes.listItemText }}
-              primary="Typography"
-            />
-          </ListItem>
-          <ListItem
-            activeClassName={classes.activeListItem}
-            className={classes.listItem}
-            component={NavLink}
-            to="/icons"
-          >
-            <ListItemIcon className={classes.listItemIcon}>
-              <ImageIcon />
-            </ListItemIcon>
-            <ListItemText
-              classes={{ primary: classes.listItemText }}
-              primary="Icons and Images"
-            />
-          </ListItem>
+          
           <ListItem
             activeClassName={classes.activeListItem}
             className={classes.listItem}
